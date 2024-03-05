@@ -34,6 +34,25 @@ const averageScores = students.reduce(function (appleScoresTotal, student) {
   return appleScoresTotal + student.score;
 }, 0) / students.length;
 
-console.log(averageScores);
+//console.log(averageScores);
 
 
+///-- next part of the challenge 
+
+const survey1 = students.reduce(function(surveyapple, student){
+  //console.log(student.favoriteSubject);
+  // Obtém a disciplina favorita do estudante
+  const favSubject = student.favoriteSubject;
+  // Verifica se a disciplina já existe no objeto surveyapple
+  if (surveyapple[favSubject]) {
+    // Se existir, incrementa o contador
+    surveyapple[favSubject] = surveyapple[favSubject] + 1;
+  } else {
+    // Se não existir, cria a disciplina no objeto com o contador igual a 1
+    surveyapple[favSubject] = 1;
+  }
+  // Retorna o objeto atualizado
+  return surveyapple;
+},{});
+
+console.log(survey1);
